@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCode Market Terminal</title>
+    <meta name="description" content="GitHub Pages-ready live market terminal with news feeds, AI-style predictions, and assistant chat." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="tiny">WEBCODE • LIVE TERMINAL</p>
+        <h1>Market Intelligence Dashboard</h1>
+      </div>
+      <div class="status-wrap">
+        <span class="pill online">● Live</span>
+        <span class="pill" id="last-updated">Updating…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" aria-labelledby="ticker-title">
+        <div class="panel-head">
+          <h2 id="ticker-title">Live Quotes</h2>
+          <p>Streaming crypto + frequent equity refresh.</p>
+        </div>
+        <div id="ticker-grid" class="ticker-grid"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="prediction-title">
+        <div class="panel-head">
+          <h2 id="prediction-title">AI Predictions</h2>
+          <p>Short-horizon directional estimate based on momentum.</p>
+        </div>
+        <div id="prediction-list" class="prediction-list"></div>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="news-title">
+        <div class="panel-head">
+          <h2 id="news-title">Live News Feed</h2>
+          <p>Finance headlines from public RSS feeds.</p>
+        </div>
+        <ul id="news-feed" class="news-feed"></ul>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="chat-title">
+        <div class="panel-head">
+          <h2 id="chat-title">Assistant Chat Box</h2>
+          <p>Ask for summary, trend, risk, or market explanation.</p>
+        </div>
+        <div id="chat-log" class="chat-log"></div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" type="text" placeholder="Example: Is BTC trend bullish today?" required />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        GitHub Pages Ready • No backend required • Data from Binance + Financial Modeling Prep (demo) + Yahoo RSS via AllOrigins.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
