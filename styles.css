@@ -1,13 +1,10 @@
 :root {
-  --bg: #060b16;
-  --panel: #0e1628;
-  --panel-2: #111d33;
-  --line: #243149;
-  --text: #e8efff;
-  --muted: #9db0d5;
-  --green: #3df39b;
-  --red: #ff5f7d;
-  --blue: #57b5ff;
+  --bg: #090b13;
+  --text: #f4f7ff;
+  --muted: #bac5e0;
+  --glass: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.17);
+  --accent: linear-gradient(130deg, #5f7cff, #00d4ff);
 }
 
 * {
@@ -16,159 +13,159 @@
 
 body {
   margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  background: radial-gradient(circle at 10% 0%, #112348 0, var(--bg) 30%, #04070f 100%);
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  background: radial-gradient(circle at 20% 0%, #161b2f 0%, var(--bg) 35%, #07090f 100%);
   color: var(--text);
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
 }
 
-.topbar {
-  width: min(1200px, 94%);
-  margin: 20px auto 14px;
+.glass-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 14px;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
   gap: 20px;
 }
 
-.tiny {
-  color: var(--blue);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
+nav a {
+  color: var(--text);
+  text-decoration: none;
 }
 
-.status-wrap {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.pill {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-.pill.online {
-  color: var(--green);
-}
-
-.layout {
-  width: min(1200px, 94%);
+main {
+  width: min(1100px, 92%);
   margin: 0 auto;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 1.3fr 1fr;
 }
 
-.panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+.hero {
+  min-height: 70vh;
+  display: grid;
+  align-content: center;
+  gap: 14px;
+}
+
+.kicker {
+  color: #8bc6ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin: 0;
+  max-width: 15ch;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 55ch;
+}
+
+.cta,
+button {
+  display: inline-block;
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.section {
+  padding: 36px 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover {
+  transform: perspective(900px) rotateY(8deg) rotateX(3deg) translateY(-6px);
+  box-shadow: 0 22px 30px rgba(0, 0, 0, 0.35);
+}
+
+.about {
+  padding: 24px;
+}
+
+#contact-form {
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+  max-width: 520px;
+}
+
+input,
+textarea {
+  width: 100%;
+  border-radius: 8px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 10px;
+}
+
+.table-wrap {
+  padding: 14px;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  font-size: 0.92rem;
+}
+
+.chatbot {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: min(360px, 92vw);
   padding: 14px;
 }
 
-.panel-wide {
-  grid-column: 1 / -1;
-}
-
-.panel-head {
-  margin-bottom: 12px;
-}
-
-.panel-head p {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.ticker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-  gap: 8px;
-}
-
-.ticker {
-  background: var(--panel-2);
-  border: 1px solid #2d3c59;
-  border-radius: 10px;
-  padding: 10px;
-  font-family: "JetBrains Mono", monospace;
-}
-
-.ticker .symbol {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.ticker .price {
-  font-size: 1.15rem;
-  margin: 6px 0 4px;
-}
-
-.ticker .move.up {
-  color: var(--green);
-}
-
-.ticker .move.down {
-  color: var(--red);
-}
-
-.prediction-list {
-  display: grid;
-  gap: 8px;
-}
-
-.prediction {
-  padding: 10px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-}
-
-.prediction small {
-  color: var(--muted);
-}
-
-.news-feed {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-}
-
-.news-feed li {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px;
-  background: var(--panel);
-}
-
-.news-feed a {
-  color: #d7e6ff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.news-feed p {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .chat-log {
-  min-height: 180px;
-  max-height: 300px;
+  min-height: 120px;
+  max-height: 210px;
   overflow-y: auto;
   display: grid;
   gap: 8px;
@@ -176,56 +173,38 @@ p {
 }
 
 .msg {
-  border-radius: 10px;
-  border: 1px solid var(--line);
   padding: 8px 10px;
-  max-width: 92%;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
 .msg.user {
-  justify-self: end;
-  background: #1a2d52;
+  background: rgba(95, 124, 255, 0.25);
 }
 
 .msg.bot {
-  justify-self: start;
-  background: #121c2f;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.chat-form {
+.chat-controls {
   display: flex;
   gap: 8px;
 }
 
-input,
-button {
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  padding: 10px;
-  font: inherit;
-}
-
-input {
-  flex: 1;
-  background: #0b1322;
-  color: white;
-}
-
-button {
-  background: #2658c7;
-  color: white;
-  cursor: pointer;
-}
-
 footer {
-  width: min(1200px, 94%);
-  margin: 12px auto 24px;
+  text-align: center;
   color: var(--muted);
-  font-size: 0.86rem;
+  padding: 36px 0 80px;
 }
 
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
+@media (max-width: 760px) {
+  .glass-navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chatbot {
+    position: static;
+    margin: 0 auto 30px;
   }
 }
