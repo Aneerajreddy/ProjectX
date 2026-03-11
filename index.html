@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCode Tech — Digital Product Studio</title>
+    <meta name="description" content="WebCode-style digital agency website with premium dark UI, 3D service cards, chatbot, and lead automation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-blur bg-blur-1" aria-hidden="true"></div>
+    <div class="bg-blur bg-blur-2" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap glass">
+        <a href="#home" class="logo">WebCode<span>Tech</span></a>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu">☰</button>
+        <nav id="main-nav">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn btn-sm">Let’s Talk</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">Startup-grade digital agency</p>
+          <h1>Build faster with modern design, engineering, and AI automation.</h1>
+          <p>
+            We craft conversion-ready websites and scalable web applications with a premium visual style inspired by WebCode-like agency platforms.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Start Project</a>
+            <a href="#services" class="btn btn-ghost">Explore Services</a>
+          </div>
+          <ul class="hero-metrics">
+            <li><strong>120+</strong><span>Projects Delivered</span></li>
+            <li><strong>45+</strong><span>Global Clients</span></li>
+            <li><strong>99%</strong><span>Delivery Success</span></li>
+          </ul>
+        </div>
+        <div class="hero-card glass">
+          <h3>Launch Stack</h3>
+          <p>Next.js • React • Node.js • AWS • MongoDB</p>
+          <div class="stack-list">
+            <span>UI/UX</span><span>Web Apps</span><span>SEO</span><span>Automation</span><span>Chatbot</span><span>Analytics</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="container section">
+        <div class="section-head">
+          <p class="eyebrow">Our Services</p>
+          <h2>What we build for growing businesses</h2>
+        </div>
+        <div class="service-grid">
+          <article class="glass service-card tilt">
+            <h3>Web Development</h3>
+            <p>High-performance marketing websites and custom web apps with maintainable architecture.</p>
+          </article>
+          <article class="glass service-card tilt">
+            <h3>UI / UX Design</h3>
+            <p>Beautiful interfaces, strong product flows, and conversion-driven visual systems.</p>
+          </article>
+          <article class="glass service-card tilt">
+            <h3>E-Commerce</h3>
+            <p>Storefronts, payment integration, and backend operations tailored for scale.</p>
+          </article>
+          <article class="glass service-card tilt">
+            <h3>SEO + Performance</h3>
+            <p>Technical SEO, fast Core Web Vitals, and content architecture for visibility.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="portfolio" class="container section">
+        <div class="section-head">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Selected work</h2>
+        </div>
+        <div class="portfolio-grid">
+          <article class="glass project">
+            <h3>SaaS Analytics Platform</h3>
+            <p>Dashboard redesign with 28% uplift in trial conversions.</p>
+          </article>
+          <article class="glass project">
+            <h3>Healthcare Booking Suite</h3>
+            <p>Secure booking experience integrated with CRM and notifications.</p>
+          </article>
+          <article class="glass project">
+            <h3>D2C Commerce Revamp</h3>
+            <p>Optimized funnels and checkout flow for higher order completion.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="container section">
+        <div class="about-grid glass">
+          <div>
+            <p class="eyebrow">About WebCode</p>
+            <h2>We blend design, engineering, and automation.</h2>
+            <p>
+              This implementation recreates a premium agency-style layout with dark theme, glassmorphism panels, 3D interactions, chatbot assistance, and lead capture automation.
+            </p>
+          </div>
+          <ul>
+            <li>Dedicated product squads</li>
+            <li>Weekly milestone delivery</li>
+            <li>Clear communication + reporting</li>
+            <li>Launch and support readiness</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="container section">
+        <div class="section-head">
+          <p class="eyebrow">Contact</p>
+          <h2>Tell us about your next project</h2>
+        </div>
+        <form id="contact-form" class="glass contact-form">
+          <div class="double">
+            <input name="name" type="text" placeholder="Your name" required />
+            <input name="email" type="email" placeholder="Your email" required />
+          </div>
+          <input name="company" type="text" placeholder="Company" />
+          <textarea name="message" rows="5" placeholder="Project details" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </section>
+
+      <section class="container section">
+        <div class="section-head">
+          <p class="eyebrow">Lead Automation</p>
+          <h2>Captured leads</h2>
+        </div>
+        <div class="glass table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Source</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="lead-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <aside class="chatbot glass" aria-label="AI chatbot">
+      <h3>AI Assistant</h3>
+      <p class="small">Ask about timeline, pricing, or stack recommendations.</p>
+      <div id="chat-log" class="chat-log"></div>
+      <form id="chat-form" class="chat-controls">
+        <input id="chat-input" type="text" placeholder="Type your message..." required />
+        <button type="submit" class="btn btn-sm">Send</button>
+      </form>
+    </aside>
+
+    <footer>
+      <div class="container footer-wrap">
+        <p>© 2026 WebCode Technologies. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
