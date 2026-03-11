@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In-House Trading Workstation</title>
+    <meta name="description" content="Internal trading platform UI with live market data, order ticket, positions, risk, and execution log." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="tiny">INTERNAL USE ONLY • TRADING DESK</p>
+        <h1>Execution & Risk Workstation</h1>
+      </div>
+      <div class="status-wrap">
+        <span class="pill live">● Market Data Live</span>
+        <span class="pill" id="last-updated">Syncing…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" aria-labelledby="watchlist-title">
+        <div class="panel-head">
+          <h2 id="watchlist-title">Live Watchlist</h2>
+          <p>Streaming crypto + polled indices/equities.</p>
+        </div>
+        <div id="watchlist-grid" class="watchlist-grid"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="risk-title">
+        <div class="panel-head">
+          <h2 id="risk-title">Risk Snapshot</h2>
+          <p>Real-time exposure and desk limits.</p>
+        </div>
+        <div id="risk-grid" class="risk-grid"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="order-title">
+        <div class="panel-head">
+          <h2 id="order-title">Order Ticket</h2>
+          <p>Simulated in-house order routing.</p>
+        </div>
+        <form id="order-form" class="order-form">
+          <div class="row">
+            <label>Symbol
+              <select id="order-symbol" required>
+                <option value="BTCUSDT">BTCUSDT</option>
+                <option value="ETHUSDT">ETHUSDT</option>
+                <option value="BNBUSDT">BNBUSDT</option>
+                <option value="AAPL">AAPL</option>
+                <option value="TSLA">TSLA</option>
+                <option value="SPY">SPY</option>
+              </select>
+            </label>
+            <label>Side
+              <select id="order-side" required>
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <label>Type
+              <select id="order-type" required>
+                <option value="MARKET">MARKET</option>
+                <option value="LIMIT">LIMIT</option>
+              </select>
+            </label>
+            <label>Qty
+              <input id="order-qty" type="number" min="0.0001" step="0.0001" value="1" required />
+            </label>
+          </div>
+          <label>Limit Price (for LIMIT)
+            <input id="order-price" type="number" min="0" step="0.01" placeholder="Auto for market" />
+          </label>
+          <button type="submit">Route Order</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="positions-title">
+        <div class="panel-head">
+          <h2 id="positions-title">Positions</h2>
+          <p>Net positions and mark-to-market P&L.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Symbol</th><th>Qty</th><th>Avg</th><th>Last</th><th>Unrealized P&L</th></tr>
+            </thead>
+            <tbody id="positions-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="execution-title">
+        <div class="panel-head">
+          <h2 id="execution-title">Execution Log</h2>
+          <p>Internal audit trail of ticket actions.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Qty</th><th>Price</th><th>Status</th></tr>
+            </thead>
+            <tbody id="executions-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="intel-title">
+        <div class="panel-head">
+          <h2 id="intel-title">Market Intel (TradingView + Forex Calendar + News)</h2>
+          <p>Decision-support feeds for the desk.</p>
+        </div>
+        <div class="intel-grid">
+          <div class="intel-card">
+            <h3>TradingView</h3>
+            <div class="tradingview-widget-container" id="tv-market-widget">
+              <div class="tradingview-widget-container__widget"></div>
+            </div>
+          </div>
+          <div class="intel-card">
+            <h3>Forex Factory Calendar</h3>
+            <ul id="forex-feed" class="feed"></ul>
+          </div>
+          <div class="intel-card">
+            <h3>Macro News</h3>
+            <ul id="news-feed" class="feed"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
