@@ -3,132 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebCode Global Market Command Center</title>
-    <meta
-      name="description"
-      content="GitHub Pages-ready global market dashboard with world impact map, TradingView charts, Forex Factory calendar feed, live gold monitor, AI predictions, and assistant chat."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>WebCode Enterprise Platform</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div>
-        <p class="tiny">WEBCODE • GLOBAL MARKET COMMAND CENTER</p>
-        <h1>Bloomberg-Style Intelligence Terminal</h1>
-      </div>
-      <div class="status-wrap">
-        <span class="pill live">● Live</span>
-        <span class="pill" id="last-updated">Updating…</span>
-      </div>
+    <header class="glass glass-navbar">
+      <div class="brand">WebCode</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <main class="layout">
-      <section class="panel" aria-labelledby="ticker-title">
-        <div class="panel-head">
-          <h2 id="ticker-title">Live Quotes</h2>
-          <p>Crypto stream + equity and index polling.</p>
-        </div>
-        <div id="ticker-grid" class="ticker-grid"></div>
+    <main>
+      <section id="home" class="hero">
+        <p class="kicker">Digital Product Studio</p>
+        <h1>Glassmorphism + 3D service experience</h1>
+        <p class="subtitle">
+          We design dark, modern web experiences with automation-ready lead capture and an AI assistant.
+        </p>
+        <a class="cta" href="#contact">Start Your Project</a>
       </section>
 
-      <section class="panel" aria-labelledby="gold-title">
-        <div class="panel-head">
-          <h2 id="gold-title">Gold Monitor (XAU)</h2>
-          <p>Live indicative XAU/USD + AI sentiment + latest gold headlines.</p>
+      <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="cards">
+          <article class="glass service-card">
+            <h3>Web Development</h3>
+            <p>Fast, scalable websites and web apps tailored for startups and enterprises.</p>
+          </article>
+          <article class="glass service-card">
+            <h3>AI Solutions</h3>
+            <p>Assistants, workflow automation, and intelligent customer support integrations.</p>
+          </article>
+          <article class="glass service-card">
+            <h3>Cloud Architecture</h3>
+            <p>Reliable cloud deployments, secure APIs, and observability-first infrastructure.</p>
+          </article>
+          <article class="glass service-card">
+            <h3>UI / UX Design</h3>
+            <p>Premium product design systems with polished interactions and conversion focus.</p>
+          </article>
         </div>
-        <div class="gold-card" id="gold-card"></div>
       </section>
 
-      <section class="panel panel-wide" aria-labelledby="tradingview-title">
-        <div class="panel-head">
-          <h2 id="tradingview-title">TradingView Live Market Widget</h2>
-          <p>Embedded live chart + symbol overview from TradingView public widgets.</p>
-        </div>
-        <div class="tradingview-wrap">
-          <div class="tradingview-widget-container" id="tv-market-widget">
-            <div class="tradingview-widget-container__widget"></div>
-          </div>
-        </div>
+      <section id="about" class="section about glass">
+        <h2>About</h2>
+        <p>
+          This demo mirrors a modern agency-style layout and includes a chatbot + lead automation flow.
+          Leads from both the chatbot and contact form are listed below and saved to local storage.
+        </p>
       </section>
 
-      <section class="panel panel-wide" aria-labelledby="map-title">
-        <div class="panel-head">
-          <h2 id="map-title">Global Impact Heat Map</h2>
-          <p>Regional impact score based on live market movement + gold sensitivity.</p>
-        </div>
-
-        <div class="map-wrap">
-          <svg class="world-map" viewBox="0 0 1000 430" role="img" aria-label="Simplified world market map">
-            <path d="M52 175l70-58 94 8 32 35-30 44-79 11-45 28-48-14z" />
-            <path d="M244 229l31-20 34 14 21 60-28 80-46-23-18-76z" />
-            <path d="M346 125l96-39 88 13 7 48-68 22-82-9z" />
-            <path d="M478 184l44-19 58 12 4 41-36 35-61 2-17-27z" />
-            <path d="M558 136l132-34 101 13 47 40-25 50-87 16-72-10-63 14-25-18z" />
-            <path d="M678 233l49 16 26 57-34 58-66-11-28-45z" />
-            <path d="M822 290l43-14 74 33-24 43-71 18-52-19z" />
-          </svg>
-
-          <div class="impact-points">
-            <button class="impact-point" data-region="northAmerica" style="left: 19%; top: 36%">North America</button>
-            <button class="impact-point" data-region="southAmerica" style="left: 27%; top: 63%">South America</button>
-            <button class="impact-point" data-region="europe" style="left: 48%; top: 35%">Europe</button>
-            <button class="impact-point" data-region="middleEast" style="left: 56%; top: 45%">Middle East</button>
-            <button class="impact-point" data-region="asia" style="left: 70%; top: 40%">Asia</button>
-            <button class="impact-point" data-region="africa" style="left: 52%; top: 60%">Africa</button>
-            <button class="impact-point" data-region="oceania" style="left: 84%; top: 72%">Oceania</button>
-          </div>
-        </div>
-
-        <div id="impact-detail" class="impact-detail"></div>
-      </section>
-
-      <section class="panel" aria-labelledby="prediction-title">
-        <div class="panel-head">
-          <h2 id="prediction-title">AI Predictions</h2>
-          <p>Short-horizon directional estimate from momentum.</p>
-        </div>
-        <div id="prediction-list" class="prediction-list"></div>
-      </section>
-
-      <section class="panel" aria-labelledby="news-title">
-        <div class="panel-head">
-          <h2 id="news-title">Macro News Feed</h2>
-          <p>Live finance headlines from public RSS feeds.</p>
-        </div>
-        <ul id="news-feed" class="news-feed"></ul>
-      </section>
-
-      <section class="panel panel-wide" aria-labelledby="forex-title">
-        <div class="panel-head">
-          <h2 id="forex-title">Forex Factory Live Calendar Feed</h2>
-          <p>Upcoming macro events sourced from Forex Factory calendar XML.</p>
-        </div>
-        <ul id="forex-feed" class="forex-feed"></ul>
-      </section>
-
-      <section class="panel panel-wide" aria-labelledby="chat-title">
-        <div class="panel-head">
-          <h2 id="chat-title">Assistant Chat Box</h2>
-          <p>Ask for summary, regional impact, gold trend, forex events, or predictions.</p>
-        </div>
-        <div id="chat-log" class="chat-log"></div>
-        <form id="chat-form" class="chat-form">
-          <input id="chat-input" type="text" placeholder="Example: Show gold outlook and top forex events" required />
-          <button type="submit">Send</button>
+      <section id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form" class="glass">
+          <input name="name" type="text" placeholder="Your name" required />
+          <input name="email" type="email" placeholder="Your email" required />
+          <textarea name="message" rows="4" placeholder="Project details" required></textarea>
+          <button type="submit">Send Message</button>
         </form>
+      </section>
+
+      <section class="section lead-board">
+        <h2>Lead Automation Board</h2>
+        <div class="glass table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Source</th>
+                <th>Message</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="lead-table"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 
+    <aside class="chatbot glass" aria-label="AI assistant widget">
+      <h3>AI Assistant</h3>
+      <div id="chat-log" class="chat-log"></div>
+      <form id="chat-form" class="chat-controls">
+        <input id="chat-input" type="text" placeholder="Ask about your project..." required />
+        <button type="submit">Send</button>
+      </form>
+    </aside>
+
     <footer>
-      <p>
-        GitHub Pages Ready • Data: Binance + Financial Modeling Prep + Yahoo + metals.live + Forex Factory + TradingView Widget.
-      </p>
+      <p>© 2026 WebCode Technologies</p>
     </footer>
 
     <script src="script.js"></script>
