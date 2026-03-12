@@ -25,8 +25,14 @@
     <main class="layout">
       <section class="panel panel-wide" aria-labelledby="world-map-title">
         <div class="panel-head">
-          <h2 id="world-map-title">3D Revolving Globe with Regional Live Feeds</h2>
-          <p>Modern animated globe. Select a region to view rates + local market headlines/announcements.</p>
+          <h2 id="world-map-title">3D Revolving Globe with Country Live Feeds</h2>
+          <p>Modern animated globe. Select any country in the world to view local market headlines and rates context.</p>
+        </div>
+        <div class="country-toolbar">
+          <label for="country-select">Country</label>
+          <select id="country-select"></select>
+          <input id="country-search" type="search" placeholder="Search country (e.g. India, Brazil, Germany)" />
+          <span id="country-count" class="country-count"></span>
         </div>
         <div class="world-wrap">
           <div class="globe-stage">
@@ -36,16 +42,16 @@
               <div class="globe-ring ring-3"></div>
               <div class="globe-core"></div>
             </div>
-            <button class="region-chip" data-region="North America" style="left:16%;top:40%">North America</button>
-            <button class="region-chip" data-region="South America" style="left:23%;top:67%">South America</button>
-            <button class="region-chip" data-region="Europe" style="left:46%;top:35%">Europe</button>
-            <button class="region-chip" data-region="Middle East" style="left:56%;top:44%">Middle East</button>
-            <button class="region-chip" data-region="Asia-Pacific" style="left:71%;top:39%">Asia-Pacific</button>
-            <button class="region-chip" data-region="Africa" style="left:51%;top:60%">Africa</button>
+            <button class="region-chip" data-region="United States" style="left:16%;top:40%">United States</button>
+            <button class="region-chip" data-region="Brazil" style="left:23%;top:67%">Brazil</button>
+            <button class="region-chip" data-region="Germany" style="left:46%;top:35%">Germany</button>
+            <button class="region-chip" data-region="UAE" style="left:56%;top:44%">UAE</button>
+            <button class="region-chip" data-region="Japan" style="left:71%;top:39%">Japan</button>
+            <button class="region-chip" data-region="South Africa" style="left:51%;top:60%">South Africa</button>
           </div>
 
           <div class="region-news-box">
-            <h3 id="selected-region-title">North America Feed</h3>
+            <h3 id="selected-region-title">Global Country Feed</h3>
             <p id="region-rate-line" class="region-rate-line">Rates: Loading…</p>
             <ul id="region-news" class="feed"><li><p>Loading regional news…</p></li></ul>
           </div>
