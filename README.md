@@ -49,6 +49,15 @@ This repository already includes `.github/workflows/deploy-pages.yml`.
 
 - This is a client-side prototype for internal workflows, not a broker-connected production OMS.
 - External feeds can be limited by provider rate limits / CORS policies.
+
+
+## Troubleshooting (GitHub Pages)
+
+- If page looks blank, do a hard refresh (`Ctrl+Shift+R`).
+- Verify workflow status in **Actions** tab: `Deploy static site to GitHub Pages`.
+- Confirm URL is correct: `https://<username>.github.io/<repo>/`.
+- Direct section link supported: `/#contact`.
+- If external feeds are blocked, fallback sample data is shown by default.
 Then open `http://127.0.0.1:4173`.
 
 ## Notes

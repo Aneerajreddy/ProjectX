@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In-House Market Intelligence Terminal</title>
+    <meta name="description" content="3D world map, live news, announcements, asset universe, chart with indicators, and AI predictions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
     <title>In-House Trading Workstation</title>
     <meta name="description" content="Internal trading platform UI with live market data, order ticket, positions, risk, and execution log." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +18,11 @@
   <body>
     <header class="topbar">
       <div>
+        <p class="tiny">INTERNAL • GLOBAL MARKET INTEL</p>
+        <h1>3D World Intelligence & Live Multi-Asset Terminal</h1>
+      </div>
+      <div class="status-wrap">
+        <span class="pill live">● Live</span>
         <p class="tiny">INTERNAL USE ONLY • TRADING DESK</p>
         <h1>Execution & Risk Workstation</h1>
       </div>
@@ -23,6 +33,69 @@
     </header>
 
     <main class="layout">
+      <section class="panel panel-wide" aria-labelledby="world-map-title">
+        <div class="panel-head">
+          <h2 id="world-map-title">3D World Map with Regional Live Feeds</h2>
+          <p>Click a region to load location-focused news and announcements.</p>
+        </div>
+        <div class="world-wrap">
+          <div class="world-map-3d" id="world-map-3d">
+            <svg viewBox="0 0 1000 440" class="world-svg" role="img" aria-label="3D world map">
+              <path d="M65 181l66-58 98 10 33 34-31 43-78 12-50 26-47-15z" />
+              <path d="M246 229l32-20 35 13 23 62-30 79-45-22-18-78z" />
+              <path d="M344 124l102-40 87 13 8 47-71 24-81-10z" />
+              <path d="M476 185l42-20 62 12 4 40-37 36-60 2-17-28z" />
+              <path d="M556 138l131-35 103 12 46 40-24 51-90 15-71-10-63 14-24-17z" />
+              <path d="M678 235l50 14 25 59-32 57-68-11-27-46z" />
+              <path d="M823 291l44-14 73 32-23 45-73 17-50-18z" />
+            </svg>
+            <button class="region-pin" data-region="North America" style="left:19%;top:38%">North America</button>
+            <button class="region-pin" data-region="South America" style="left:27%;top:64%">South America</button>
+            <button class="region-pin" data-region="Europe" style="left:49%;top:36%">Europe</button>
+            <button class="region-pin" data-region="Middle East" style="left:57%;top:45%">Middle East</button>
+            <button class="region-pin" data-region="Asia-Pacific" style="left:71%;top:40%">Asia-Pacific</button>
+            <button class="region-pin" data-region="Africa" style="left:52%;top:61%">Africa</button>
+          </div>
+          <div class="region-news-box">
+            <h3 id="selected-region-title">North America Feed</h3>
+            <ul id="region-news" class="feed"><li><p>Loading regional news…</p></li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="ann-title">
+        <div class="panel-head"><h2 id="ann-title">Live News & Announcements</h2><p>Continuous updates and market announcements.</p></div>
+        <ul id="announcement-feed" class="feed tall-feed"><li><p>Loading announcements…</p></li></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="asset-title">
+        <div class="panel-head"><h2 id="asset-title">Live Asset Universe</h2><p>Indices, commodities, forex, cryptos, metals.</p></div>
+        <div id="asset-list" class="asset-list"></div>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="chart-title">
+        <div class="panel-head"><h2 id="chart-title">Selected Asset Chart + Indicators</h2><p>Select any instrument from the universe to update chart and indicators.</p></div>
+        <div class="chart-grid">
+          <div>
+            <div class="tradingview-widget-container" id="tv-advanced-chart"><div class="tradingview-widget-container__widget"></div></div>
+          </div>
+          <div class="indicator-box" id="indicator-box">
+            <h3>Indicator Snapshot</h3>
+            <p>Select an instrument to calculate SMA, EMA, RSI and momentum from live/fallback history.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-wide" aria-labelledby="ai-title">
+        <div class="panel-head"><h2 id="ai-title">AI Prediction Console</h2><p>Predictions by selected instrument and category basket.</p></div>
+        <div class="ai-grid">
+          <div class="ai-box">
+            <h3>Selected Instrument AI Prediction</h3>
+            <div id="selected-ai-prediction">Waiting for instrument selection…</div>
+          </div>
+          <div class="ai-box">
+            <h3>Category AI Predictions (Indices / Commodities / Forex / Crypto / Metals)</h3>
+            <div id="category-ai-predictions">Loading category predictions…</div>
       <section class="panel" aria-labelledby="watchlist-title">
         <div class="panel-head">
           <h2 id="watchlist-title">Live Watchlist</h2>
@@ -135,6 +208,7 @@
       </section>
     </main>
 
+    <noscript><div class="noscript">JavaScript is required for live features.</div></noscript>
    
     <footer>
       <p>© 2026 WebCode Technologies</p>
